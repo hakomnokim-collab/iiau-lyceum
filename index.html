@@ -1,1225 +1,1457 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Akademik litsey | IIAU</title>
-
-    <meta name="description"
-          content="O‘zbekiston xalqaro islom akademiyasi akademik litseyi rasmiy sayti">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #172033;
-            background: #f7f9fc;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e7ebf2;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 15px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1167b1, #0b4380);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 19px;
-            font-weight: bold;
-            box-shadow: 0 6px 18px rgba(17, 103, 177, 0.25);
-        }
-
-        .logo-text strong {
-            display: block;
-            font-size: 15px;
-            color: #123b68;
-        }
-
-        .logo-text span {
-            display: block;
-            font-size: 12px;
-            color: #7b8798;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-
-        nav a {
-            padding: 9px 13px;
-            border-radius: 8px;
-            font-size: 14px;
-            color: #344054;
-            transition: 0.25s;
-        }
-
-        nav a:hover {
-            color: #1167b1;
-            background: #eef6ff;
-        }
-
-        .menu-button {
-            display: none;
-            border: none;
-            background: #eef6ff;
-            color: #1167b1;
-            font-size: 25px;
-            width: 43px;
-            height: 43px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 650px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            background:
-                radial-gradient(circle at 85% 20%, rgba(62, 147, 225, 0.18), transparent 28%),
-                linear-gradient(135deg, #071d35 0%, #0c416f 55%, #1167b1 100%);
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 50%;
-            right: -150px;
-            top: -120px;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 50%;
-            right: 40px;
-            bottom: -190px;
-        }
-
-        .hero-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 70px 25px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            max-width: 760px;
-            color: white;
-        }
-
-        .hero-label {
-            display: inline-block;
-            padding: 7px 14px;
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(255,255,255,0.08);
-            border-radius: 30px;
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 6vw, 67px);
-            line-height: 1.08;
-            margin-bottom: 22px;
-            letter-spacing: -1.5px;
-        }
-
-        .hero h1 span {
-            color: #7fc5ff;
-        }
-
-        .hero p {
-            max-width: 680px;
-            color: #dcecff;
-            font-size: 17px;
-            margin-bottom: 32px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 13px 20px;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            transition: 0.25s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #0c4f89;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-        }
-
-        .btn-outline {
-            border: 1px solid rgba(255,255,255,0.4);
-            color: white;
-            background: rgba(255,255,255,0.05);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.14);
-        }
-
-        /* =========================
-           GENERAL
-        ========================= */
-
-        .section {
-            padding: 90px 25px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-heading {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 45px;
-        }
-
-        .section-heading small {
-            color: #1167b1;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .section-heading h2 {
-            font-size: 38px;
-            line-height: 1.2;
-            margin: 10px 0 14px;
-            color: #102d4c;
-        }
-
-        .section-heading p {
-            color: #697586;
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            background: white;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-card {
-            min-height: 360px;
-            border-radius: 25px;
-            padding: 40px;
-            background:
-                linear-gradient(135deg, rgba(17,103,177,.94), rgba(10,57,103,.97));
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-card::after {
-            content: "IIAU";
-            position: absolute;
-            right: -15px;
-            bottom: -35px;
-            font-size: 130px;
-            font-weight: bold;
-            color: rgba(255,255,255,0.06);
-        }
-
-        .about-card h3 {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .about-card p {
-            color: #dcecff;
-        }
-
-        .about-content h3 {
-            color: #102d4c;
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .about-content p {
-            color: #697586;
-            margin-bottom: 18px;
-        }
-
-        .check-list {
-            list-style: none;
-        }
-
-        .check-list li {
-            margin: 10px 0;
-            color: #344054;
-        }
-
-        .check-list li::before {
-            content: "✓";
-            color: #1167b1;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        /* =========================
-           DIRECTIONS
-        ========================= */
-
-        .directions {
-            background: #f7f9fc;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid #e7ebf2;
-            border-radius: 18px;
-            padding: 28px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 18px 40px rgba(16,45,76,0.09);
-            border-color: #cfe5fa;
-        }
-
-        .card-icon {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
-            background: #eef6ff;
-            color: #1167b1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 25px;
-            margin-bottom: 18px;
-        }
-
-        .card h3 {
-            color: #102d4c;
-            margin-bottom: 9px;
-        }
-
-        .card p {
-            color: #697586;
-            font-size: 14px;
-        }
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-            background: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 28px 15px;
-            border-radius: 16px;
-            background: #f7f9fc;
-        }
-
-        .stat strong {
-            display: block;
-            color: #1167b1;
-            font-size: 38px;
-        }
-
-        .stat span {
-            color: #697586;
-            font-size: 14px;
-        }
-
-        /* =========================
-           NEWS
-        ========================= */
-
-        .news {
-            background: #f7f9fc;
-        }
-
-        .news-card {
-            overflow: hidden;
-            padding: 0;
-        }
-
-        .news-image {
-            height: 190px;
-            background:
-                linear-gradient(135deg, #0c416f, #55a5e6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 50px;
-        }
-
-        .news-body {
-            padding: 24px;
-        }
-
-        .news-date {
-            color: #1167b1;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .news-body h3 {
-            margin: 8px 0;
-        }
-
-        .news-body p {
-            color: #697586;
-            font-size: 14px;
-        }
-
-        /* =========================
-           TELEGRAM
-        ========================= */
-
-        .telegram-section {
-            background: white;
-        }
-
-        .telegram-box {
-            background: linear-gradient(135deg, #0787cf, #075e9c);
-            color: white;
-            border-radius: 25px;
-            padding: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            box-shadow: 0 20px 45px rgba(7,135,207,0.18);
-        }
-
-        .telegram-box h2 {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .telegram-box p {
-            color: #dff4ff;
-        }
-
-        .telegram-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .telegram-btn {
-            background: white;
-            color: #0878b5;
-        }
-
-        .telegram-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            background: #f7f9fc;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .contact-card {
-            background: white;
-            border: 1px solid #e7ebf2;
-            border-radius: 20px;
-            padding: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            margin-bottom: 23px;
-        }
-
-        .contact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            flex-shrink: 0;
-            border-radius: 12px;
-            background: #eef6ff;
-            color: #1167b1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .contact-item strong {
-            display: block;
-            color: #102d4c;
-            margin-bottom: 3px;
-        }
-
-        .contact-item span,
-        .contact-item a {
-            color: #697586;
-            font-size: 14px;
-        }
-
-        .contact-item a:hover {
-            color: #1167b1;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #071d35;
-            color: white;
-            padding: 55px 25px 25px;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-logo {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-
-        footer p {
-            color: #aebfd2;
-            font-size: 14px;
-        }
-
-        footer h3 {
-            margin-bottom: 15px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin: 9px 0;
-        }
-
-        .footer-links a {
-            color: #aebfd2;
-            font-size: 14px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .copyright {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #8094aa;
-            font-size: 13px;
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 79px;
-                left: 15px;
-                right: 15px;
-                background: white;
-                padding: 12px;
-                border-radius: 14px;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            nav a {
-                padding: 12px;
-            }
-
-            .menu-button {
-                display: block;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .telegram-box {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            .header-container {
-                padding: 12px 16px;
-            }
-
-            .logo-text strong {
-                font-size: 13px;
-            }
-
-            .logo-text span {
-                font-size: 10px;
-            }
-
-            .hero {
-                min-height: 600px;
-            }
-
-            .hero-container {
-                padding: 55px 18px;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .section {
-                padding: 65px 18px;
-            }
-
-            .section-heading h2 {
-                font-size: 30px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat strong {
-                font-size: 30px;
-            }
-
-            .telegram-box {
-                padding: 30px 24px;
-            }
-
-            .telegram-box h2 {
-                font-size: 26px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IIAU Akademik litseyi</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+    --green:#0b3f3d;
+    --green2:#11625e;
+    --mint:#dff6f4;
+    --mint2:#effaf9;
+    --gold:#d8bd6b;
+    --cream:#f8f8f5;
+    --white:#ffffff;
+    --text:#172321;
+    --muted:#71817e;
+    --border:#e4e9e7;
+    --shadow:0 12px 35px rgba(13,55,52,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:76px;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    z-index:1000;
+    padding-left:24px;
+}
+
+.menu-btn{
+    width:48px;
+    height:48px;
+    border:1px solid var(--border);
+    background:white;
+    border-radius:13px;
+    font-size:22px;
+    cursor:pointer;
+    display:none;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    width:290px;
+}
+
+.logo{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--mint);
+    border:3px solid #19c8bd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--green);
+    font-weight:700;
+    font-size:18px;
+}
+
+.brand-text strong{
+    display:block;
+    font-size:17px;
+}
+
+.brand-text span{
+    color:#91a19e;
+    font-size:11px;
+    letter-spacing:1.2px;
+}
+
+.header-right{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding-right:22px;
+}
+
+.search{
+    width:395px;
+    height:47px;
+    border:1px solid var(--border);
+    border-radius:25px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    padding:0 17px;
+    gap:10px;
+}
+
+.search span{
+    font-size:19px;
+    color:#9ba7a5;
+}
+
+.search input{
+    border:0;
+    outline:0;
+    width:100%;
+    font-size:14px;
+    font-family:inherit;
+}
+
+.languages{
+    background:#f2f6f5;
+    padding:4px;
+    border-radius:24px;
+    display:flex;
+    gap:3px;
+}
+
+.lang{
+    border:0;
+    background:transparent;
+    padding:10px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+    color:#52615f;
+}
+
+.lang.active{
+    background:var(--green);
+    color:white;
+}
+
+.login{
+    border:0;
+    background:var(--green);
+    color:white;
+    padding:13px 21px;
+    border-radius:24px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    position:fixed;
+    top:76px;
+    left:0;
+    bottom:0;
+    width:315px;
+    background:#fff;
+    border-right:1px solid var(--border);
+    padding:27px 18px;
+    overflow-y:auto;
+    z-index:900;
+}
+
+.sidebar-title{
+    color:#8b9997;
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:700;
+    margin:0 14px 12px;
+}
+
+.nav{
+    list-style:none;
+    margin-bottom:29px;
+}
+
+.nav li{
+    margin:4px 0;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#1d2928;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 15px;
+    border-radius:12px;
+    transition:.25s;
+    font-size:15px;
+}
+
+.nav a:hover{
+    background:var(--mint2);
+    color:var(--green2);
+    transform:translateX(3px);
+}
+
+.nav a.active{
+    background:var(--mint);
+    color:var(--green2);
+    font-weight:700;
+}
+
+.icon{
+    width:21px;
+    text-align:center;
+    font-size:19px;
+}
+
+/* ================= MAIN ================= */
+
+main{
+    margin-left:315px;
+    padding-top:76px;
+}
+
+.container{
+    max-width:1450px;
+    margin:auto;
+    padding:0 68px 70px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    margin-top:0;
+    min-height:585px;
+    background:linear-gradient(135deg,#073d3b,#0b504d 55%,#082f2e);
+    border-radius:0 0 28px 28px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 30px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    top:-280px;
+    left:-150px;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:50%;
+    right:-280px;
+    bottom:-400px;
+}
+
+.hero-logo{
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    background:#e9faf8;
+    border:5px solid #1ad1c4;
+    color:var(--green);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    font-weight:800;
+    margin-bottom:24px;
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:20px;
+    position:relative;
+    z-index:2;
+}
+
+.hero p{
+    max-width:720px;
+    font-family:'Playfair Display',serif;
+    font-size:20px;
+    line-height:1.7;
+    color:#c5d8d5;
+    position:relative;
+    z-index:2;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    margin-top:30px;
+    position:relative;
+    z-index:2;
+}
+
+.btn{
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:30px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:#16c8bd;
+    color:#073b39;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(22,200,189,.25);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.3);
+    color:white;
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,.1);
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.stat{
+    text-align:center;
+    padding:27px 15px;
+    border-right:1px solid var(--border);
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat strong{
+    font-size:31px;
+    display:block;
+}
+
+.stat span{
+    color:#96a19f;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-top:5px;
+    display:block;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    padding-top:65px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:27px;
+}
+
+.section-label{
+    color:var(--green2);
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:9px;
+}
+
+.section h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+}
+
+.section-description{
+    color:#71817e;
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    margin-top:8px;
+}
+
+.all-link{
+    text-decoration:none;
+    color:var(--green2);
+    font-weight:700;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:27px;
+    min-height:245px;
+    position:relative;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+    border-color:#c8d9d6;
+}
+
+.card:after{
+    content:"✦";
+    position:absolute;
+    right:18px;
+    top:10px;
+    font-size:85px;
+    color:#e9eeee;
+    opacity:.8;
+}
+
+.card-icon{
+    width:50px;
+    height:50px;
+    background:var(--mint);
+    color:var(--green2);
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    margin-bottom:25px;
+    position:relative;
+    z-index:2;
+}
+
+.card h3{
+    font-family:'Playfair Display',serif;
+    font-size:23px;
+    margin-bottom:11px;
+    position:relative;
+    z-index:2;
+}
+
+.card p{
+    color:#74827f;
+    line-height:1.6;
+    position:relative;
+    z-index:2;
+}
+
+.card-link{
+    display:inline-block;
+    margin-top:20px;
+    color:var(--green2);
+    text-decoration:none;
+    font-weight:700;
+    position:relative;
+    z-index:2;
+}
+
+/* ================= NEWS ================= */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.news{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.news:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.news-image{
+    height:190px;
+    background:linear-gradient(135deg,#0b4e4a,#19aaa2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+}
+
+.news-content{
+    padding:23px;
+}
+
+.news-date{
+    font-size:12px;
+    color:#82908e;
+}
+
+.news h3{
+    font-family:'Playfair Display',serif;
+    font-size:21px;
+    margin:9px 0;
+}
+
+.news p{
+    color:#71817e;
+    line-height:1.6;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:var(--green);
+    color:white;
+    border-radius:25px;
+    padding:55px;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    overflow:hidden;
+    position:relative;
+}
+
+.about h2{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#bfd2d0;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.about-box{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:20px;
+    padding:28px;
+}
+
+.about-box h3{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+.about-list{
+    list-style:none;
+}
+
+.about-list li{
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    color:#c8d9d7;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.contact-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:27px;
+    text-decoration:none;
+    color:var(--text);
+    transition:.3s;
+}
+
+.contact-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.contact-icon{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:var(--mint);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+    margin-bottom:17px;
+}
+
+.contact-card h3{
+    font-family:'Playfair Display',serif;
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.contact-card p{
+    color:#71817e;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#072f2e;
+    color:white;
+    margin-top:70px;
+    padding:50px 68px 25px;
+}
+
+.footer-grid{
+    max-width:1450px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand h2{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    margin-bottom:13px;
+}
+
+.footer-brand p{
+    color:#a9c0bd;
+    line-height:1.7;
+    max-width:350px;
+}
+
+.footer-col h3{
+    font-size:14px;
+    margin-bottom:16px;
+}
+
+.footer-col a{
+    display:block;
+    text-decoration:none;
+    color:#a9c0bd;
+    margin:10px 0;
+    transition:.2s;
+}
+
+.footer-col a:hover{
+    color:white;
+}
+
+.copyright{
+    max-width:1450px;
+    margin:35px auto 0;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#8da6a3;
+    font-size:13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .sidebar{
+        width:260px;
+    }
+
+    main{
+        margin-left:260px;
+    }
+
+    .brand{
+        width:230px;
+    }
+
+    .search{
+        width:270px;
+    }
+
+    .container{
+        padding-left:35px;
+        padding-right:35px;
+    }
+
+    .cards,
+    .news-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:800px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .brand{
+        margin-left:13px;
+        width:auto;
+    }
+
+    .header-right{
+        display:none;
+    }
+
+    .sidebar{
+        left:-315px;
+        width:280px;
+        transition:.3s;
+        box-shadow:10px 0 30px rgba(0,0,0,.08);
+    }
+
+    .sidebar.open{
+        left:0;
+    }
+
+    main{
+        margin-left:0;
+    }
+
+    .container{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .hero{
+        border-radius:0 0 22px 22px;
+        min-height:510px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat:nth-child(2){
+        border-right:0;
+    }
+
+    .stat:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .cards,
+    .news-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+        padding:30px;
+    }
+
+    .about h2{
+        font-size:34px;
+    }
+
+    .section h2{
+        font-size:31px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    footer{
+        padding:40px 25px 20px;
+    }
+}
+
+@media(max-width:500px){
+
+    .brand-text strong{
+        font-size:14px;
+    }
+
+    .brand-text span{
+        font-size:9px;
+    }
+
+    .hero{
+        padding:50px 18px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .stat:last-child{
+        border-bottom:0;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
-<header>
-    <div class="header-container">
+<header class="header">
 
-        <a href="#home" class="logo">
-            <div class="logo-circle">IIAU</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-            <div class="logo-text">
-                <strong>Akademik litsey</strong>
-                <span>IIAU</span>
-            </div>
-        </a>
+    <div class="brand">
+        <div class="logo">II</div>
 
-        <nav id="nav">
-            <a href="#home">Bosh sahifa</a>
-            <a href="#about">Biz haqimizda</a>
-            <a href="#education">Ta’lim</a>
-            <a href="#news">Yangiliklar</a>
-            <a href="#contact">Aloqa</a>
-        </nav>
+        <div class="brand-text">
+            <strong>IIAU Akademik litseyi</strong>
+            <span>TA'LIM • ILM • KELAJAK</span>
+        </div>
+    </div>
 
-        <button class="menu-button" onclick="openMenu()">
-            ☰
+    <div class="header-right">
+
+        <div class="search">
+            <span>⌕</span>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Kitob, maqola yoki kalit so'z"
+                onkeyup="searchSite()"
+            >
+        </div>
+
+        <div class="languages">
+            <button class="lang active">🇺🇿 UZ</button>
+            <button class="lang">🇷🇺 RU</button>
+            <button class="lang">🇬🇧 EN</button>
+        </div>
+
+        <button class="login" onclick="alert('Kirish tizimi tez orada ishga tushadi.')">
+            Kirish
         </button>
 
     </div>
+
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- ================= SIDEBAR ================= -->
 
-<section class="hero" id="home">
+<aside class="sidebar" id="sidebar">
 
-    <div class="hero-container">
+    <div class="sidebar-title">NAVIGATSIYA</div>
 
-        <div class="hero-content">
+    <ul class="nav">
 
-            <div class="hero-label">
-                🎓 Akademik litseyning rasmiy sayti
-            </div>
+        <li>
+            <a href="#home" class="active">
+                <span class="icon">⌂</span>
+                Bosh sahifa
+            </a>
+        </li>
 
-            <h1>
-                Bilim va kelajak sari
-                <span>birgalikda!</span>
-            </h1>
+        <li>
+            <a href="#catalog">
+                <span class="icon">▦</span>
+                Katalog
+            </a>
+        </li>
+
+        <li>
+            <a href="#news">
+                <span class="icon">▣</span>
+                Yangiliklar
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                <span class="icon">✧</span>
+                Litsey haqida
+            </a>
+        </li>
+
+    </ul>
+
+
+    <div class="sidebar-title">BO‘LIMLAR</div>
+
+    <ul class="nav">
+
+        <li>
+            <a href="#education">
+                <span class="icon">✦</span>
+                Ta'lim yo‘nalishlari
+            </a>
+        </li>
+
+        <li>
+            <a href="#teachers">
+                <span class="icon">▤</span>
+                O‘qituvchilar
+            </a>
+        </li>
+
+        <li>
+            <a href="#students">
+                <span class="icon">▥</span>
+                O‘quvchilar
+            </a>
+        </li>
+
+        <li>
+            <a href="#achievements">
+                <span class="icon">◇</span>
+                Yutuqlar
+            </a>
+        </li>
+
+        <li>
+            <a href="#resources">
+                <span class="icon">▱</span>
+                Resurslar
+            </a>
+        </li>
+
+        <li>
+            <a href="#media">
+                <span class="icon">▷</span>
+                Media
+            </a>
+        </li>
+
+    </ul>
+
+
+    <div class="sidebar-title">ALOQA</div>
+
+    <ul class="nav">
+
+        <li>
+            <a href="#contact">
+                <span class="icon">☎</span>
+                Biz bilan bog‘lanish
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="https://t.me/IIAU_AL_OFFICIAL"
+                target="_blank"
+            >
+                <span class="icon">✈</span>
+                Telegram kanal
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+    <div class="container" id="home">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-logo">IIAU</div>
+
+            <h1>IIAU Akademik litseyi</h1>
 
             <p>
-                Zamonaviy bilim, yuqori sifatli ta’lim va
-                yoshlar uchun keng imkoniyatlar.
-                Bizning litsey — kelajak sari ishonchli qadam.
+                Zamonaviy bilim, yuksak ma'naviyat va katta imkoniyatlar
+                maskani. Kelajak uchun mustahkam poydevorni biz bilan yarating.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="#about" class="btn btn-primary">
-                    Litsey haqida →
+                <a href="#catalog" class="btn btn-primary">
+                    Barcha yo‘nalishlar →
                 </a>
 
-                <a href="https://t.me/IIAU_AL_OFFICIAL"
-                   target="_blank"
-                   class="btn btn-outline">
-                    ✈️ Telegram kanal
+                <a href="#about" class="btn btn-outline">
+                    Litsey haqida
                 </a>
 
             </div>
 
-        </div>
+        </section>
 
-    </div>
 
-</section>
+        <!-- STATS -->
 
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="section about" id="about">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <small>Biz haqimizda</small>
-
-            <h2>
-                Kelajak uchun sifatli ta’lim
-            </h2>
-
-            <p>
-                Akademik litsey yoshlarning bilim va salohiyatini
-                rivojlantirishga qaratilgan zamonaviy ta’lim maskanidir.
-            </p>
-        </div>
-
-
-        <div class="about-grid">
-
-            <div class="about-card">
-
-                <h3>
-                    Akademik litsey
-                </h3>
-
-                <p>
-                    Biz o‘quvchilarga chuqur bilim olish,
-                    o‘z qobiliyatlarini rivojlantirish va
-                    oliy ta’limga tayyorgarlik ko‘rish uchun
-                    zarur sharoitlarni yaratamiz.
-                </p>
-
-            </div>
-
-
-            <div class="about-content">
-
-                <h3>
-                    Bizning maqsadimiz
-                </h3>
-
-                <p>
-                    Yoshlarni zamonaviy bilim va ko‘nikmalar bilan
-                    ta’minlash, ularning mustaqil fikrlashi va
-                    kelajakdagi muvaffaqiyatlari uchun mustahkam
-                    poydevor yaratish.
-                </p>
-
-                <ul class="check-list">
-
-                    <li>Zamonaviy ta’lim muhiti</li>
-
-                    <li>Malakali pedagoglar</li>
-
-                    <li>O‘quvchilar uchun keng imkoniyatlar</li>
-
-                    <li>Oliy ta’limga tayyorgarlik</li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     EDUCATION
-========================= -->
-
-<section class="section directions" id="education">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <small>Ta’lim</small>
-
-            <h2>
-                Ta’lim yo‘nalishlari
-            </h2>
-
-            <p>
-                O‘quvchilarning bilim va qiziqishlarini
-                rivojlantirish uchun zamonaviy fanlar.
-            </p>
-
-        </div>
-
-
-        <div class="cards">
-
-            <div class="card">
-
-                <div class="card-icon">📚</div>
-
-                <h3>
-                    Ijtimoiy fanlar
-                </h3>
-
-                <p>
-                    Tarix, huquq, jamiyatshunoslik va
-                    boshqa ijtimoiy fanlar bo‘yicha chuqur bilim.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">🌐</div>
-
-                <h3>
-                    Xorijiy tillar
-                </h3>
-
-                <p>
-                    Ingliz tili va boshqa xorijiy tillarni
-                    zamonaviy metodlar asosida o‘rganish.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">💻</div>
-
-                <h3>
-                    Zamonaviy texnologiyalar
-                </h3>
-
-                <p>
-                    Raqamli texnologiyalar va zamonaviy
-                    axborot vositalaridan foydalanish.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">🧠</div>
-
-                <h3>
-                    Ilmiy izlanish
-                </h3>
-
-                <p>
-                    O‘quvchilarning mustaqil fikrlashi va
-                    ilmiy izlanishlarini qo‘llab-quvvatlash.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">🎯</div>
-
-                <h3>
-                    Olimpiadalar
-                </h3>
-
-                <p>
-                    Fan olimpiadalari va turli intellektual
-                    musobaqalarda ishtirok etish.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">🎓</div>
-
-                <h3>
-                    Oliy ta’lim
-                </h3>
-
-                <p>
-                    Oliy ta’lim muassasalariga kirish uchun
-                    puxta tayyorgarlik.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<section class="section stats">
-
-    <div class="container">
-
-        <div class="stats-grid">
+        <section class="stats">
 
             <div class="stat">
-                <strong>100+</strong>
-                <span>O‘quvchilar</span>
+                <strong>1000+</strong>
+                <span>O‘quvchi</span>
+            </div>
+
+            <div class="stat">
+                <strong>50+</strong>
+                <span>O‘qituvchi</span>
             </div>
 
             <div class="stat">
                 <strong>20+</strong>
-                <span>Pedagoglar</span>
+                <span>Yo‘nalish</span>
             </div>
 
             <div class="stat">
-                <strong>10+</strong>
-                <span>Fanlar</span>
+                <strong>100+</strong>
+                <span>Yutuqlar</span>
             </div>
 
-            <div class="stat">
-                <strong>100%</strong>
-                <span>Kelajak sari</span>
+        </section>
+
+
+        <!-- CATALOG -->
+
+        <section class="section" id="catalog">
+
+            <div class="section-head">
+
+                <div>
+                    <div class="section-label">
+                        LITSEY
+                    </div>
+
+                    <h2>Ta'lim yo‘nalishlari</h2>
+
+                    <p class="section-description">
+                        O‘quvchilar uchun zamonaviy va sifatli ta'lim imkoniyatlari.
+                    </p>
+                </div>
+
+                <a href="#catalog" class="all-link">
+                    Barchasini ko‘rish →
+                </a>
+
             </div>
 
-        </div>
 
-    </div>
+            <div class="cards">
 
-</section>
-
-
-<!-- =========================
-     NEWS
-========================= -->
-
-<section class="section news" id="news">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <small>Yangiliklar</small>
-
-            <h2>
-                So‘nggi yangiliklar
-            </h2>
-
-            <p>
-                Litsey hayotidagi muhim voqealar va yangiliklar.
-            </p>
-
-        </div>
-
-
-        <div class="cards">
-
-            <article class="card news-card">
-
-                <div class="news-image">
-                    🏫
-                </div>
-
-                <div class="news-body">
-
-                    <span class="news-date">
-                        YANGILIK
-                    </span>
-
-                    <h3>
-                        Akademik litsey hayoti
-                    </h3>
-
+                <article class="card searchable">
+                    <div class="card-icon">✦</div>
+                    <h3>Xorijiy tillar</h3>
                     <p>
-                        Litseyimizdagi ta’lim jarayoni,
-                        tadbirlar va o‘quvchilar faoliyati.
+                        Ingliz tili va boshqa xorijiy tillarni chuqur
+                        o‘rganish imkoniyati.
                     </p>
-
-                </div>
-
-            </article>
+                    <a href="#" class="card-link">Batafsil →</a>
+                </article>
 
 
-            <article class="card news-card">
-
-                <div class="news-image">
-                    🎓
-                </div>
-
-                <div class="news-body">
-
-                    <span class="news-date">
-                        TA’LIM
-                    </span>
-
-                    <h3>
-                        O‘quvchilar uchun imkoniyatlar
-                    </h3>
-
+                <article class="card searchable">
+                    <div class="card-icon">⌘</div>
+                    <h3>Ijtimoiy fanlar</h3>
                     <p>
-                        Yoshlarning bilim va qobiliyatlarini
-                        rivojlantirishga qaratilgan loyihalar.
+                        Tarix, huquq, siyosatshunoslik va jamiyatga oid
+                        fanlar bo‘yicha bilimlar.
                     </p>
+                    <a href="#" class="card-link">Batafsil →</a>
+                </article>
 
+
+                <article class="card searchable">
+                    <div class="card-icon">◇</div>
+                    <h3>Axborot texnologiyalari</h3>
+                    <p>
+                        Zamonaviy texnologiyalar, dasturlash va raqamli
+                        ko‘nikmalar.
+                    </p>
+                    <a href="#" class="card-link">Batafsil →</a>
+                </article>
+
+
+                <article class="card searchable">
+                    <div class="card-icon">▣</div>
+                    <h3>Iqtisodiyot</h3>
+                    <p>
+                        Iqtisodiy bilimlar, moliya va biznes asoslarini
+                        o‘rganish.
+                    </p>
+                    <a href="#" class="card-link">Batafsil →</a>
+                </article>
+
+
+                <article class="card searchable">
+                    <div class="card-icon">◈</div>
+                    <h3>Ma'naviyat va ma'rifat</h3>
+                    <p>
+                        Milliy qadriyatlar, ma'naviyat va ma'rifatga
+                        asoslangan ta'lim.
+                    </p>
+                    <a href="#" class="card-link">Batafsil →</a>
+                </article>
+
+
+                <article class="card searchable">
+                    <div class="card-icon">✧</div>
+                    <h3>Ilmiy tadqiqotlar</h3>
+                    <p>
+                        O‘quvchilarning ilmiy izlanishlari va loyihalarini
+                        qo‘llab-quvvatlash.
+                    </p>
+                    <a href="#" class="card-link">Batafsil →</a>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEWS -->
+
+        <section class="section" id="news">
+
+            <div class="section-head">
+
+                <div>
+                    <div class="section-label">
+                        YANGILIKLAR
+                    </div>
+
+                    <h2>So‘nggi yangiliklar</h2>
                 </div>
 
-            </article>
+                <a href="#news" class="all-link">
+                    Barcha yangiliklar →
+                </a>
+
+            </div>
 
 
-            <article class="card news-card">
+            <div class="news-grid">
 
-                <div class="news-image">
-                    🏆
-                </div>
+                <article class="news searchable">
 
-                <div class="news-body">
+                    <div class="news-image">
+                        IIAU
+                    </div>
 
-                    <span class="news-date">
+                    <div class="news-content">
+
+                        <span class="news-date">
+                            01.09.2026
+                        </span>
+
+                        <h3>
+                            Yangi o‘quv yili boshlandi
+                        </h3>
+
+                        <p>
+                            Akademik litseyda yangi o‘quv yiliga
+                            tayyorgarlik ishlari yakunlandi.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="news searchable">
+
+                    <div class="news-image">
+                        ILM
+                    </div>
+
+                    <div class="news-content">
+
+                        <span class="news-date">
+                            28.08.2026
+                        </span>
+
+                        <h3>
+                            O‘quvchilar uchun yangi imkoniyatlar
+                        </h3>
+
+                        <p>
+                            Ta'lim jarayoniga yangi loyihalar va
+                            zamonaviy dasturlar joriy etilmoqda.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="news searchable">
+
+                    <div class="news-image">
                         YUTUQ
-                    </span>
+                    </div>
 
-                    <h3>
-                        O‘quvchilarimiz yutuqlari
-                    </h3>
+                    <div class="news-content">
+
+                        <span class="news-date">
+                            25.08.2026
+                        </span>
+
+                        <h3>
+                            Litsey o‘quvchilarining yutuqlari
+                        </h3>
+
+                        <p>
+                            O‘quvchilarimiz turli tanlov va
+                            olimpiadalarda faol ishtirok etmoqda.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="section" id="about">
+
+            <div class="about">
+
+                <div>
+
+                    <div class="section-label">
+                        BIZ HAQIMIZDA
+                    </div>
+
+                    <h2>
+                        Bilimdan — kelajakka
+                    </h2>
 
                     <p>
-                        Fan olimpiadalari va turli tanlovlarda
-                        erishilgan natijalar.
+                        IIAU Akademik litseyi — yoshlarning bilimini,
+                        dunyoqarashini va ijodiy salohiyatini rivojlantirishga
+                        xizmat qiluvchi zamonaviy ta'lim maskani.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Bizning maqsadimiz — o‘quvchilarga sifatli ta'lim
+                        berish, ularni mustaqil fikrlashga o‘rgatish va
+                        kelajakdagi katta maqsadlariga tayyorlash.
                     </p>
 
                 </div>
 
-            </article>
 
-        </div>
+                <div class="about-box">
 
-    </div>
+                    <h3>Bizning qadriyatlarimiz</h3>
 
-</section>
+                    <ul class="about-list">
+
+                        <li>✓ Sifatli ta'lim</li>
+                        <li>✓ Zamonaviy bilim</li>
+                        <li>✓ Milliy qadriyatlar</li>
+                        <li>✓ Ilmiy izlanish</li>
+                        <li>✓ Yoshlar salohiyati</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
-<!-- =========================
-     TELEGRAM
-========================= -->
+        <!-- EDUCATION -->
 
-<section class="section telegram-section">
+        <section class="section" id="education">
 
-    <div class="container">
+            <div class="section-head">
 
-        <div class="telegram-box">
+                <div>
+                    <div class="section-label">
+                        IMKONIYATLAR
+                    </div>
 
-            <div>
-
-                <h2>
-                    Bizni Telegramda kuzating
-                </h2>
-
-                <p>
-                    Litsey yangiliklari va muhim e’lonlardan
-                    birinchilardan bo‘lib xabardor bo‘ling.
-                </p>
+                    <h2>Nega aynan biz?</h2>
+                </div>
 
             </div>
 
 
-            <div class="telegram-buttons">
+            <div class="cards">
+
+                <article class="card">
+                    <div class="card-icon">01</div>
+                    <h3>Zamonaviy ta'lim</h3>
+                    <p>
+                        Zamonaviy metodikalar va yangi pedagogik
+                        texnologiyalardan foydalanamiz.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">02</div>
+                    <h3>Tajribali ustozlar</h3>
+                    <p>
+                        O‘quvchilarga bilim beradigan malakali
+                        va tajribali pedagoglar.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">03</div>
+                    <h3>Rivojlanish muhiti</h3>
+                    <p>
+                        Har bir o‘quvchining qobiliyatini
+                        rivojlantirish uchun qulay muhit.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="section" id="contact">
+
+            <div class="section-head">
+
+                <div>
+                    <div class="section-label">
+                        ALOQA
+                    </div>
+
+                    <h2>Biz bilan bog‘laning</h2>
+
+                    <p class="section-description">
+                        Savollaringiz bo‘lsa, biz bilan bog‘lanishingiz mumkin.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <a
+                    href="tel:+998502228388"
+                    class="contact-card"
+                >
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <h3>Telefon</h3>
+
+                    <p>
+                        +998 50 222 83 88
+                    </p>
+
+                </a>
+
 
                 <a
                     href="https://t.me/IIAU_AL_OFFICIAL"
                     target="_blank"
-                    class="btn telegram-btn">
+                    class="contact-card"
+                >
 
-                    ✈️ Kanalimiz
+                    <div class="contact-icon">
+                        ✈
+                    </div>
+
+                    <h3>Telegram kanal</h3>
+
+                    <p>
+                        @IIAU_AL_OFFICIAL
+                    </p>
 
                 </a>
 
@@ -1227,337 +1459,223 @@
                 <a
                     href="https://t.me/uzxia_al_bot"
                     target="_blank"
-                    class="btn telegram-btn">
-
-                    🤖 Telegram bot
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section class="section contact" id="contact">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <small>Aloqa</small>
-
-            <h2>
-                Biz bilan bog‘laning
-            </h2>
-
-            <p>
-                Savollaringiz bo‘lsa, biz bilan bog‘lanishingiz mumkin.
-            </p>
-
-        </div>
-
-
-        <div class="contact-grid">
-
-            <div class="contact-card">
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-                        📞
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Telefon
-                        </strong>
-
-                        <a href="tel:+998502228388">
-                            +998 50 222 83 88
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-                        ✈️
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Telegram
-                        </strong>
-
-                        <a
-                            href="https://t.me/tavqi"
-                            target="_blank">
-
-                            @tavqi
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <div class="contact-icon">
-                        📢
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Telegram kanal
-                        </strong>
-
-                        <a
-                            href="https://t.me/IIAU_AL_OFFICIAL"
-                            target="_blank">
-
-                            @IIAU_AL_OFFICIAL
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-item">
+                    class="contact-card"
+                >
 
                     <div class="contact-icon">
                         🤖
                     </div>
 
-                    <div>
+                    <h3>Telegram bot</h3>
 
-                        <strong>
-                            Telegram bot
-                        </strong>
+                    <p>
+                        @uzxia_al_bot
+                    </p>
 
-                        <a
-                            href="https://t.me/uzxia_al_bot"
-                            target="_blank">
+                </a>
 
-                            @uzxia_al_bot
+            </div>
 
-                        </a>
+        </section>
 
-                    </div>
 
-                </div>
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h2>IIAU Akademik litseyi</h2>
+
+                <p>
+                    Bilim, ma'naviyat va kelajak sari birgalikda.
+                </p>
 
             </div>
 
 
-            <div class="contact-card">
+            <div class="footer-col">
 
-                <h3 style="margin-bottom:15px; color:#102d4c;">
-                    Telegram orqali murojaat
-                </h3>
+                <h3>Sayt</h3>
 
-                <p style="color:#697586; margin-bottom:25px;">
+                <a href="#home">Bosh sahifa</a>
+                <a href="#catalog">Katalog</a>
+                <a href="#news">Yangiliklar</a>
+                <a href="#about">Biz haqimizda</a>
 
-                    Savol yoki taklifingiz bo‘lsa,
-                    Telegram botimiz orqali bizga murojaat
-                    qilishingiz mumkin.
+            </div>
 
-                </p>
+
+            <div class="footer-col">
+
+                <h3>Bo‘limlar</h3>
+
+                <a href="#education">Ta'lim</a>
+                <a href="#teachers">O‘qituvchilar</a>
+                <a href="#students">O‘quvchilar</a>
+                <a href="#achievements">Yutuqlar</a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h3>Aloqa</h3>
+
+                <a href="tel:+998502228388">
+                    +998 50 222 83 88
+                </a>
+
+                <a
+                    href="https://t.me/IIAU_AL_OFFICIAL"
+                    target="_blank"
+                >
+                    Telegram kanal
+                </a>
 
                 <a
                     href="https://t.me/uzxia_al_bot"
                     target="_blank"
-                    class="btn"
-                    style="background:#087fc1;color:white;">
-
-                    🤖 Botga murojaat qilish →
-
+                >
+                    Telegram bot
                 </a>
 
             </div>
 
         </div>
 
-    </div>
 
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="footer-grid">
-
-        <div>
-
-            <div class="footer-logo">
-
-                <div class="logo-circle">
-                    IIAU
-                </div>
-
-                <div>
-                    <strong>
-                        Akademik litsey
-                    </strong>
-                    <p>
-                        IIAU
-                    </p>
-                </div>
-
-            </div>
-
-            <p>
-                Bilim, tarbiya va kelajak sari
-                ishonchli qadam.
-            </p>
-
+        <div class="copyright">
+            © 2026 IIAU Akademik litseyi. Barcha huquqlar himoyalangan.
         </div>
 
+    </footer>
 
-        <div>
+</main>
 
-            <h3>
-                Menyu
-            </h3>
-
-            <ul class="footer-links">
-
-                <li>
-                    <a href="#home">
-                        Bosh sahifa
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        Biz haqimizda
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#education">
-                        Ta’lim
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#news">
-                        Yangiliklar
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Aloqa
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Telegram
-            </h3>
-
-            <ul class="footer-links">
-
-                <li>
-                    <a
-                        href="https://t.me/IIAU_AL_OFFICIAL"
-                        target="_blank">
-
-                        📢 Telegram kanal
-
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="https://t.me/uzxia_al_bot"
-                        target="_blank">
-
-                        🤖 Telegram bot
-
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="https://t.me/tavqi"
-                        target="_blank">
-
-                        👤 @tavqi
-
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © 2026 IIAU Akademik litseyi.
-        Barcha huquqlar himoyalangan.
-
-    </div>
-
-</footer>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
-    function openMenu() {
+/* ================= MOBILE MENU ================= */
 
-        const nav = document.getElementById("nav");
+function toggleMenu(){
 
-        nav.classList.toggle("show");
+    const sidebar = document.getElementById("sidebar");
 
-    }
+    sidebar.classList.toggle("open");
+
+}
 
 
-    document.querySelectorAll("nav a").forEach(function(link) {
+/* ================= SEARCH ================= */
 
-        link.addEventListener("click", function() {
+function searchSite(){
 
-            document.getElementById("nav")
-                .classList.remove("show");
+    const input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-        });
+    const items =
+        document.querySelectorAll(".searchable");
+
+    items.forEach(function(item){
+
+        const text =
+            item.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            item.style.display = "";
+        }else{
+            item.style.display = "none";
+        }
 
     });
+
+}
+
+
+/* ================= LANGUAGE ================= */
+
+document.querySelectorAll(".lang").forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        document.querySelectorAll(".lang")
+        .forEach(function(btn){
+            btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+
+/* ================= ACTIVE MENU ================= */
+
+document.querySelectorAll(".nav a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        document.querySelectorAll(".nav a")
+        .forEach(function(item){
+            item.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        if(window.innerWidth <= 800){
+            document
+                .getElementById("sidebar")
+                .classList.remove("open");
+        }
+
+    });
+
+});
+
+
+/* ================= SCROLL ACTIVE MENU ================= */
+
+window.addEventListener("scroll", function(){
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
+    let current = "";
+
+    sections.forEach(function(section){
+
+        const top =
+            section.offsetTop - 160;
+
+        if(window.scrollY >= top){
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    document.querySelectorAll(".nav a").forEach(function(link){
+
+        link.classList.remove("active");
+
+        if(
+            link.getAttribute("href") === "#" + current
+        ){
+            link.classList.add("active");
+        }
+
+    });
+
+});
 
 </script>
 
