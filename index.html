@@ -1,750 +1,1152 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akademik litsey | IIAU</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            color: #222;
-            background: #fff;
-        }
-
-        /* HEADER */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.97);
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .nav {
-            max-width: 1200px;
-            margin: auto;
-            min-height: 78px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: bold;
-            color: #174d36;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #174d36;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .logo-text {
-            font-size: 14px;
-            line-height: 1.3;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-size: 15px;
-            transition: .3s;
-        }
-
-        nav a:hover {
-            color: #174d36;
-        }
-
-        .menu-btn {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 620px;
-            background:
-                linear-gradient(rgba(10, 48, 34, .78), rgba(10, 48, 34, .78)),
-                url("https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1800&q=80")
-                center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 60px 20px;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero small {
-            font-size: 17px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            font-size: 54px;
-            margin: 20px 0;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: 20px;
-            line-height: 1.7;
-            opacity: .95;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 15px 30px;
-            background: #d7b45b;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: .3s;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            background: #c49f43;
-        }
-
-        /* GENERAL */
-        section {
-            padding: 90px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-title span {
-            color: #b18b32;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            margin-top: 12px;
-            color: #174d36;
-        }
-
-        /* ABOUT */
-        .about {
-            background: #f7f8f6;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-image {
-            min-height: 390px;
-            border-radius: 12px;
-            background:
-                url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80")
-                center/cover;
-        }
-
-        .about-text h3 {
-            font-size: 30px;
-            color: #174d36;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 18px;
-        }
-
-        /* DIRECTIONS */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .card {
-            padding: 35px 28px;
-            border: 1px solid #e4e4e4;
-            border-radius: 12px;
-            background: white;
-            transition: .3s;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,.09);
-        }
-
-        .card-icon {
-            width: 65px;
-            height: 65px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: #e9f0eb;
-            color: #174d36;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-
-        .card h3 {
-            color: #174d36;
-            margin-bottom: 15px;
-            font-size: 21px;
-        }
-
-        .card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* NUMBERS */
-        .numbers {
-            background: #174d36;
-            color: white;
-        }
-
-        .numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            text-align: center;
-            gap: 25px;
-        }
-
-        .number h3 {
-            font-size: 42px;
-            color: #d7b45b;
-        }
-
-        .number p {
-            margin-top: 8px;
-            opacity: .9;
-        }
-
-        /* NEWS */
-        .news {
-            background: #f7f8f6;
-        }
-
-        .news-card {
-            overflow: hidden;
-            border-radius: 12px;
-            background: white;
-            border: 1px solid #e4e4e4;
-        }
-
-        .news-image {
-            height: 210px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .news-content {
-            padding: 25px;
-        }
-
-        .news-content small {
-            color: #b18b32;
-        }
-
-        .news-content h3 {
-            color: #174d36;
-            margin: 12px 0;
-        }
-
-        .news-content p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* CTA */
-        .cta {
-            background:
-                linear-gradient(rgba(23,77,54,.92), rgba(23,77,54,.92)),
-                url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=80")
-                center/cover;
-            text-align: center;
-            color: white;
-        }
-
-        .cta h2 {
-            font-size: 40px;
-            margin-bottom: 18px;
-        }
-
-        .cta p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        /* CONTACT */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-box {
-            padding: 30px;
-            border-radius: 12px;
-            background: #f7f8f6;
-        }
-
-        .contact-item {
-            margin-bottom: 25px;
-        }
-
-        .contact-item h4 {
-            color: #174d36;
-            margin-bottom: 7px;
-        }
-
-        .contact-item p {
-            color: #666;
-        }
-
-        .map {
-            min-height: 300px;
-            border-radius: 12px;
-            background: #e9ece9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #174d36;
-            font-size: 18px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #102f23;
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-        }
-
-        footer p {
-            opacity: .8;
-        }
-
-        /* MOBILE */
-        @media (max-width: 800px) {
-            nav {
-                display: none;
-                position: absolute;
-                top: 78px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 25px;
-                box-shadow: 0 10px 20px rgba(0,0,0,.08);
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .numbers-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .hero {
-                min-height: 560px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .section-title h2 {
-                font-size: 30px;
-            }
-
-            .numbers-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .logo-text {
-                font-size: 12px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IIAU Akademik Litseyi</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f7f9f8;
+    color:#17231f;
+}
+
+:root{
+    --green:#087653;
+    --dark:#043c2b;
+    --gold:#d9ad43;
+    --light:#eaf6f1;
+    --white:#fff;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    box-shadow:0 2px 18px rgba(0,0,0,.08);
+}
+
+.navbar{
+    max-width:1250px;
+    width:92%;
+    margin:auto;
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#12352b;
+}
+
+.logo-circle{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--green);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.logo b{
+    display:block;
+    font-size:16px;
+}
+
+.logo small{
+    color:#718078;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+nav a{
+    text-decoration:none;
+    color:#263a33;
+    font-weight:600;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:var(--green);
+}
+
+.contact-btn{
+    background:var(--green);
+    color:white!important;
+    padding:12px 18px;
+    border-radius:8px;
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(90deg,
+    rgba(2,45,32,.95),
+    rgba(2,45,32,.68),
+    rgba(2,45,32,.25)),
+    url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.hero-content{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+    color:#fff;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 17px;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.1);
+    border-radius:30px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    max-width:800px;
+    font-size:60px;
+    line-height:1.08;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:#e5bd51;
+}
+
+.hero p{
+    max-width:650px;
+    font-size:18px;
+    color:#e4eeea;
+    margin-bottom:32px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.primary{
+    background:var(--gold);
+    color:#18251f;
+}
+
+.secondary{
+    border:1px solid #fff;
+    color:#fff;
+}
+
+.secondary:hover{
+    background:#fff;
+    color:var(--green);
+}
+
+/* STATS */
+
+.stats{
+    max-width:1100px;
+    width:90%;
+    margin:-55px auto 70px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 12px 35px rgba(0,0,0,.1);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    position:relative;
+    overflow:hidden;
+}
+
+.stat{
+    text-align:center;
+    padding:28px 15px;
+    border-right:1px solid #e2e8e5;
+}
+
+.stat:last-child{
+    border:none;
+}
+
+.stat strong{
+    display:block;
+    font-size:31px;
+    color:var(--green);
+}
+
+.stat span{
+    color:#68766f;
+    font-size:14px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 6%;
+}
+
+.title{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 45px;
+}
+
+.title small{
+    color:var(--green);
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.title h2{
+    font-size:40px;
+    margin:10px 0;
+}
+
+.title p{
+    color:#68766f;
+}
+
+/* ABOUT */
+
+.about{
+    background:#fff;
+}
+
+.about-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-photo{
+    height:430px;
+    border-radius:18px;
+
+    background:
+    linear-gradient(rgba(0,80,55,.15),rgba(0,80,55,.15)),
+    url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=90")
+    center/cover;
+}
+
+.about h2{
+    font-size:40px;
+    margin:12px 0 20px;
+}
+
+.about p{
+    color:#66746d;
+    margin-bottom:18px;
+}
+
+.checks{
+    list-style:none;
+    margin:25px 0;
+}
+
+.checks li{
+    margin:12px 0;
+    font-weight:600;
+}
+
+.checks li:before{
+    content:"✓";
+    color:var(--green);
+    background:var(--light);
+    border-radius:50%;
+    padding:4px 8px;
+    margin-right:10px;
+}
+
+/* CARDS */
+
+.cards{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:#fff;
+    padding:30px;
+    border:1px solid #e2e8e5;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px rgba(0,0,0,.09);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    border-radius:12px;
+    background:var(--light);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#6b7872;
+    font-size:14px;
+}
+
+/* NEWS */
+
+.news{
+    background:#f0f5f3;
+}
+
+.news-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.news-img{
+    height:210px;
+    background-size:cover;
+    background-position:center;
+}
+
+.img1{
+    background-image:url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=85");
+}
+
+.img2{
+    background-image:url("https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=85");
+}
+
+.img3{
+    background-image:url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85");
+}
+
+.news-content{
+    padding:24px;
+}
+
+.date{
+    color:var(--green);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.news-content h3{
+    margin:9px 0;
+}
+
+.news-content p{
+    color:#69766f;
+    font-size:14px;
+}
+
+/* ADMISSION */
+
+.admission{
+    background:linear-gradient(135deg,#043c2b,#087653);
+    color:white;
+    text-align:center;
+}
+
+.admission h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.admission p{
+    max-width:700px;
+    margin:0 auto 28px;
+    color:#dbeae5;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#fff;
+}
+
+.contact-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-info h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.contact-info > p{
+    color:#69766f;
+    margin-bottom:25px;
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:20px 0;
+}
+
+.item-icon{
+    width:45px;
+    height:45px;
+    background:var(--light);
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    font-size:20px;
+}
+
+.item strong{
+    display:block;
+}
+
+.item span{
+    color:#68766f;
+    font-size:14px;
+}
+
+.links{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.links a{
+    text-decoration:none;
+    padding:12px 17px;
+    border-radius:8px;
+    background:var(--light);
+    color:var(--green);
+    font-weight:bold;
+}
+
+.links a:hover{
+    background:var(--green);
+    color:white;
+}
+
+/* FORM */
+
+.form{
+    background:#f6f9f7;
+    padding:30px;
+    border-radius:16px;
+}
+
+.form h3{
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+input,textarea{
+    width:100%;
+    border:1px solid #dce5e1;
+    border-radius:8px;
+    padding:14px;
+    margin-bottom:14px;
+    font-family:inherit;
+    outline:none;
+}
+
+textarea{
+    height:130px;
+    resize:none;
+}
+
+input:focus,textarea:focus{
+    border-color:var(--green);
+}
+
+.form button{
+    border:0;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#032f22;
+    color:white;
+    padding:50px 6% 20px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+footer p,footer li,footer a{
+    color:#b7cbc4;
+    font-size:14px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin:8px 0;
+}
+
+footer a{
+    text-decoration:none;
+}
+
+footer a:hover{
+    color:#fff;
+}
+
+.copy{
+    max-width:1200px;
+    margin:35px auto 0;
+    border-top:1px solid rgba(255,255,255,.12);
+    padding-top:20px;
+    text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    nav{
+        display:none;
+        position:absolute;
+        top:82px;
+        left:0;
+        width:100%;
+        background:#fff;
+        padding:25px;
+        flex-direction:column;
+        box-shadow:0 10px 20px rgba(0,0,0,.1);
+    }
+
+    nav.show{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        width:94%;
+    }
+
+    .hero{
+        min-height:590px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:60px 5%;
+    }
+
+    .stats{
+        width:94%;
+        margin-top:-35px;
+    }
+
+    .stat strong{
+        font-size:25px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .about h2,
+    .title h2{
+        font-size:31px;
+    }
+
+    .about-photo{
+        height:330px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="nav">
+<div class="navbar">
 
-        <div class="logo">
-            <div class="logo-icon">IL</div>
-            <div class="logo-text">
-                AKADEMIK LITSEY<br>
-                IIAU
-            </div>
-        </div>
-
-        <nav id="menu">
-            <a href="#home">Bosh sahifa</a>
-            <a href="#about">Litsey haqida</a>
-            <a href="#education">Ta'lim</a>
-            <a href="#news">Yangiliklar</a>
-            <a href="#contact">Bog'lanish</a>
-        </nav>
-
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
+<a href="#home" class="logo">
+    <div class="logo-circle">I</div>
+    <div>
+        <b>IIAU AKADEMIK LITSEYI</b>
+        <small>Ilm • Tarbiya • Kelajak</small>
     </div>
+</a>
+
+<nav id="nav">
+    <a href="#home">Bosh sahifa</a>
+    <a href="#about">Biz haqimizda</a>
+    <a href="#directions">Yo‘nalishlar</a>
+    <a href="#news">Yangiliklar</a>
+    <a href="#admission">Qabul</a>
+    <a href="#contact" class="contact-btn">Aloqa</a>
+</nav>
+
+<div class="menu" onclick="openMenu()">☰</div>
+
+</div>
 </header>
 
 
-<!-- HERO -->
 <section class="hero" id="home">
-    <div class="hero-content">
 
-        <small>O‘zbekiston xalqaro islom akademiyasi</small>
+<div class="hero-content">
 
-        <h1>Akademik litsey</h1>
+<div class="badge">
+🎓 Zamonaviy akademik litsey
+</div>
 
-        <p>
-            Ilm, ma’rifat va zamonaviy ta’lim orqali
-            kelajak avlodni tarbiyalaymiz.
-        </p>
+<h1>
+Kelajak sari <span>bilim bilan</span> qadam qo‘ying
+</h1>
 
-        <a href="#about" class="hero-btn">Batafsil ma’lumot</a>
+<p>
+IIAU Akademik litseyi — yoshlarning bilim,
+dunyoqarash va ijodiy salohiyatini rivojlantirish
+uchun zamonaviy ta’lim muhiti.
+</p>
 
-    </div>
+<div class="buttons">
+<a href="#admission" class="btn primary">
+Qabul haqida
+</a>
+
+<a href="#about" class="btn secondary">
+Litsey haqida
+</a>
+</div>
+
+</div>
 </section>
 
 
-<!-- ABOUT -->
+<div class="stats">
+
+<div class="stat">
+<strong>1000+</strong>
+<span>O‘quvchilar</span>
+</div>
+
+<div class="stat">
+<strong>50+</strong>
+<span>Ustozlar</span>
+</div>
+
+<div class="stat">
+<strong>20+</strong>
+<span>Yillik tajriba</span>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<span>Kelajak sari</span>
+</div>
+
+</div>
+
+
 <section class="about" id="about">
-    <div class="container">
 
-        <div class="section-title">
-            <span>Biz haqimizda</span>
-            <h2>Litsey haqida</h2>
-        </div>
+<div class="about-grid">
 
-        <div class="about-grid">
+<div class="about-photo"></div>
 
-            <div class="about-image"></div>
+<div>
 
-            <div class="about-text">
+<small style="color:#087653;font-weight:bold">
+BIZ HAQIMIZDA
+</small>
 
-                <h3>Kelajak sari ishonchli qadam</h3>
+<h2>
+Bilim va tarbiya uyg‘unligi
+</h2>
 
-                <p>
-                    O‘zbekiston xalqaro islom akademiyasi akademik litseyi
-                    yoshlarning chuqur bilim olishi, zamonaviy kasblarni
-                    egallashi va oliy ta’limga puxta tayyorgarlik ko‘rishi
-                    uchun xizmat qiladi.
-                </p>
+<p>
+Akademik litseyimizda o‘quvchilarning intellektual,
+ma’naviy va ijodiy salohiyatini rivojlantirishga
+alohida e’tibor qaratiladi.
+</p>
 
-                <p>
-                    Litseyda o‘quvchilarning bilim va salohiyatini
-                    rivojlantirishga, mustaqil fikrlashiga hamda
-                    ma’naviy-ma’rifiy tarbiyasiga alohida e’tibor beriladi.
-                </p>
+<p>
+Zamonaviy ta’lim texnologiyalari va tajribali
+pedagoglar yoshlarning oliy ta’limga tayyorgarligini
+yanada mustahkamlaydi.
+</p>
 
-                <a href="#education" class="hero-btn">Ta’lim yo‘nalishlari</a>
+<ul class="checks">
+<li>Zamonaviy ta’lim dasturlari</li>
+<li>Malakali ustozlar</li>
+<li>Fan olimpiadalari</li>
+<li>Ijodiy va ilmiy loyihalar</li>
+</ul>
 
-            </div>
+<a href="#contact" class="btn primary">
+Biz bilan bog‘laning
+</a>
 
-        </div>
-    </div>
+</div>
+
+</div>
 </section>
 
 
-<!-- EDUCATION -->
-<section id="education">
-    <div class="container">
+<section id="directions">
 
-        <div class="section-title">
-            <span>Ta’lim</span>
-            <h2>Ta’lim yo‘nalishlari</h2>
-        </div>
+<div class="title">
 
-        <div class="cards">
+<small>TA’LIM YO‘NALISHLARI</small>
 
-            <div class="card">
-                <div class="card-icon">📐</div>
-                <h3>Aniq fanlar</h3>
-                <p>
-                    Matematika, informatika va aniq fanlarga
-                    qiziqadigan o‘quvchilar uchun.
-                </p>
-            </div>
+<h2>Imkoniyatlarimiz</h2>
 
-            <div class="card">
-                <div class="card-icon">📚</div>
-                <h3>Ijtimoiy-gumanitar</h3>
-                <p>
-                    Tarix, huquq, ona tili va boshqa
-                    ijtimoiy-gumanitar fanlar yo‘nalishi.
-                </p>
-            </div>
+<p>
+O‘quvchilarning kelajakdagi maqsadlariga mos
+ravishda rivojlanish imkoniyatlari.
+</p>
 
-            <div class="card">
-                <div class="card-icon">🌐</div>
-                <h3>Xorijiy filologiya</h3>
-                <p>
-                    Xorijiy tillarni chuqur o‘rganish va
-                    til ko‘nikmalarini rivojlantirish.
-                </p>
-            </div>
+</div>
 
-        </div>
-    </div>
+<div class="cards">
+
+<div class="card">
+<div class="icon">📚</div>
+<h3>Gumanitar fanlar</h3>
+<p>
+Tarix, ona tili, adabiyot va boshqa fanlarni
+chuqur o‘rganish.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌍</div>
+<h3>Xorijiy tillar</h3>
+<p>
+Ingliz va boshqa xorijiy tillarni zamonaviy
+metodlar orqali o‘rganish.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>IT texnologiyalar</h3>
+<p>
+Dasturlash va zamonaviy raqamli ko‘nikmalarni
+rivojlantirish.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📊</div>
+<h3>Iqtisodiyot</h3>
+<p>
+Iqtisodiyot, moliya va biznes asoslari bo‘yicha
+bilim olish.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">⚖️</div>
+<h3>Huquq</h3>
+<p>
+Huquqiy bilimlar va jamiyatdagi huquqiy
+munosabatlarni o‘rganish.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🔬</div>
+<h3>Ilmiy izlanish</h3>
+<p>
+Ilmiy loyihalar, tadqiqotlar va olimpiadalarda
+qatnashish.
+</p>
+</div>
+
+</div>
 </section>
 
 
-<!-- NUMBERS -->
-<section class="numbers">
-    <div class="container">
-
-        <div class="numbers-grid">
-
-            <div class="number">
-                <h3>3</h3>
-                <p>Ta’lim yo‘nalishi</p>
-            </div>
-
-            <div class="number">
-                <h3>100+</h3>
-                <p>O‘quvchilar</p>
-            </div>
-
-            <div class="number">
-                <h3>20+</h3>
-                <p>Malakali ustozlar</p>
-            </div>
-
-            <div class="number">
-                <h3>100%</h3>
-                <p>Kelajak sari</p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- NEWS -->
 <section class="news" id="news">
-    <div class="container">
 
-        <div class="section-title">
-            <span>Media</span>
-            <h2>So‘nggi yangiliklar</h2>
-        </div>
+<div class="title">
 
-        <div class="cards">
+<small>YANGILIKLAR</small>
 
-            <div class="news-card">
-                <div class="news-image"
-                     style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80')">
-                </div>
+<h2>Litsey hayotidan</h2>
 
-                <div class="news-content">
-                    <small>YANGILIK</small>
-                    <h3>Litsey hayotidan</h3>
-                    <p>
-                        Litseyda o‘tkazilayotgan ta’limiy va
-                        ma’naviy-ma’rifiy tadbirlar.
-                    </p>
-                </div>
-            </div>
+<p>
+Litseyimizdagi so‘nggi voqealar va yangiliklar.
+</p>
 
+</div>
 
-            <div class="news-card">
-                <div class="news-image"
-                     style="background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80')">
-                </div>
+<div class="cards">
 
-                <div class="news-content">
-                    <small>TA’LIM</small>
-                    <h3>Bilim va imkoniyatlar</h3>
-                    <p>
-                        O‘quvchilar uchun yangi bilim va
-                        rivojlanish imkoniyatlari.
-                    </p>
-                </div>
-            </div>
+<div class="news-card">
+<div class="news-img img1"></div>
+
+<div class="news-content">
+<div class="date">01 SENTYABR 2026</div>
+<h3>Yangi o‘quv yili boshlandi</h3>
+<p>
+O‘quv yilining boshlanishiga bag‘ishlangan
+tadbir bo‘lib o‘tdi.
+</p>
+</div>
+</div>
 
 
-            <div class="news-card">
-                <div class="news-image"
-                     style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80')">
-                </div>
+<div class="news-card">
+<div class="news-img img2"></div>
 
-                <div class="news-content">
-                    <small>O‘QUV JARAYONI</small>
-                    <h3>Zamonaviy ta’lim</h3>
-                    <p>
-                        Yoshlarni zamonaviy bilim va
-                        ko‘nikmalar bilan ta’minlash.
-                    </p>
-                </div>
-            </div>
+<div class="news-content">
+<div class="date">28 AVGUST 2026</div>
+<h3>Yangi imkoniyatlar</h3>
+<p>
+O‘quvchilar uchun yangi ta’lim loyihalari
+yo‘lga qo‘yilmoqda.
+</p>
+</div>
+</div>
 
-        </div>
-    </div>
+
+<div class="news-card">
+<div class="news-img img3"></div>
+
+<div class="news-content">
+<div class="date">20 AVGUST 2026</div>
+<h3>Zamonaviy texnologiyalar</h3>
+<p>
+Ta’lim jarayonida raqamli texnologiyalardan
+foydalanish kengaytirilmoqda.
+</p>
+</div>
+</div>
+
+</div>
 </section>
 
 
-<!-- CTA -->
-<section class="cta">
-    <div class="container">
+<section class="admission" id="admission">
 
-        <h2>Kelajagingizni biz bilan quring</h2>
+<h2>Litseyga qabul</h2>
 
-        <p>
-            Sifatli ta’lim — buyuk kelajak poydevori.
-        </p>
+<p>
+Qabul shartlari, hujjatlar va imtihonlar haqida
+batafsil ma’lumot olish uchun biz bilan bog‘laning.
+</p>
 
-        <a href="#contact" class="hero-btn">Biz bilan bog‘laning</a>
+<a href="#contact" class="btn primary">
+Bog‘lanish
+</a>
 
-    </div>
 </section>
 
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="container">
+<section class="contact" id="contact">
 
-        <div class="section-title">
-            <span>Aloqa</span>
-            <h2>Biz bilan bog‘laning</h2>
-        </div>
+<div class="contact-grid">
 
-        <div class="contact-grid">
+<div class="contact-info">
 
-            <div class="contact-box">
+<h2>Biz bilan bog‘laning</h2>
 
-                <div class="contact-item">
-                    <h4>📍 Manzil</h4>
-                    <p>Toshkent shahri, O‘zbekiston</p>
-                </div>
+<p>
+Savollaringiz bo‘lsa, telefon yoki Telegram orqali
+bizga murojaat qilishingiz mumkin.
+</p>
 
-                <div class="contact-item">
-                    <h4>☎ Telefon</h4>
-                    <p>+998 71 000 00 00</p>
-                </div>
 
-                <div class="contact-item">
-                    <h4>✉ Elektron pochta</h4>
-                    <p>info@litsey.uz</p>
-                </div>
+<div class="item">
 
-                <div class="contact-item">
-                    <h4>🕐 Ish vaqti</h4>
-                    <p>Dushanba — Juma: 08:00 — 17:00</p>
-                </div>
+<div class="item-icon">📞</div>
 
-            </div>
+<div>
+<strong>Telefon</strong>
+<span>+998 50 222 83 88</span>
+</div>
 
-            <div class="map">
-                📍 Litsey manzili xaritada
-            </div>
+</div>
 
-        </div>
-    </div>
+
+<div class="item">
+
+<div class="item-icon">✈️</div>
+
+<div>
+<strong>Telegram</strong>
+<span>@tavqi</span>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-icon">🤖</div>
+
+<div>
+<strong>Telegram bot</strong>
+<span>@uzxia_al_bot</span>
+</div>
+
+</div>
+
+
+<div class="links">
+
+<a href="tel:+998502228388">
+📞 Qo‘ng‘iroq qilish
+</a>
+
+<a href="https://t.me/tavqi" target="_blank">
+✈️ Telegram
+</a>
+
+<a href="https://t.me/uzxia_al_bot" target="_blank">
+🤖 Botga kirish
+</a>
+
+</div>
+
+</div>
+
+
+<div class="form">
+
+<h3>Xabar yuborish</h3>
+
+<input type="text" placeholder="Ismingiz">
+
+<input type="tel" placeholder="Telefon raqamingiz">
+
+<textarea placeholder="Xabaringiz"></textarea>
+
+<button class="btn primary" onclick="sendMessage()">
+Xabar yuborish
+</button>
+
+</div>
+
+</div>
 </section>
 
 
-<!-- FOOTER -->
 <footer>
-    <p>
-        © 2026 Akademik litsey. Barcha huquqlar himoyalangan.
-    </p>
+
+<div class="footer-grid">
+
+<div>
+
+<div class="footer-title">
+IIAU AKADEMIK LITSEYI
+</div>
+
+<p>
+Ilm, tarbiya va zamonaviy bilim orqali
+kelajak avlodni tayyorlaymiz.
+</p>
+
+</div>
+
+
+<div>
+
+<div class="footer-title">Sayt</div>
+
+<ul>
+<li><a href="#home">Bosh sahifa</a></li>
+<li><a href="#about">Biz haqimizda</a></li>
+<li><a href="#directions">Yo‘nalishlar</a></li>
+</ul>
+
+</div>
+
+
+<div>
+
+<div class="footer-title">Ma’lumot</div>
+
+<ul>
+<li><a href="#news">Yangiliklar</a></li>
+<li><a href="#admission">Qabul</a></li>
+<li><a href="#contact">Aloqa</a></li>
+</ul>
+
+</div>
+
+
+<div>
+
+<div class="footer-title">Telegram</div>
+
+<ul>
+<li>
+<a href="https://t.me/tavqi" target="_blank">
+@tavqi
+</a>
+</li>
+
+<li>
+<a href="https://t.me/uzxia_al_bot" target="_blank">
+@uzxia_al_bot
+</a>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="copy">
+© 2026 IIAU Akademik litseyi. Barcha huquqlar himoyalangan.
+</div>
+
 </footer>
 
 
 <script>
-    function toggleMenu() {
-        document.getElementById("menu").classList.toggle("active");
-    }
 
-    document.querySelectorAll("nav a").forEach(function(link) {
-        link.addEventListener("click", function() {
-            document.getElementById("menu").classList.remove("active");
-        });
+function openMenu(){
+    document.getElementById("nav").classList.toggle("show");
+}
+
+document.querySelectorAll("nav a").forEach(function(link){
+    link.addEventListener("click",function(){
+        document.getElementById("nav").classList.remove("show");
     });
+});
+
+function sendMessage(){
+    alert("Xabaringiz qabul qilindi!");
+}
+
 </script>
 
 </body>
